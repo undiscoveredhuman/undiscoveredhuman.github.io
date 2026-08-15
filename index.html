@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Undiscovered Human — Mapping what humanity has not yet named</title>
+<meta name="description" content="A project to map the latent human capacities for which our language has no words — using AI as a lens, not a replacement. Essays, candidate capacities, and the constitution that must precede the first map.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1B2A;
+    --ink-deep:#091320;
+    --parchment:#E8E4DA;
+    --chart:#5FA8D3;
+    --graticule:#1B3A5C;
+    --faded:#8FA3B8;
+    --serif:'Spectral', Georgia, 'Times New Roman', serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--serif);
+    font-weight:300;
+    line-height:1.65;
+    font-size:18px;
+    background-image:
+      linear-gradient(var(--graticule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--graticule) 1px, transparent 1px);
+    background-size:220px 220px;
+    background-position:center top;
+  }
+  a{color:var(--chart)}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--chart); outline-offset:3px}
+
+  /* ---------- HERO: above the waterline ---------- */
+  .hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 24px 0;
+    width:100%;
+    text-align:center;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--faded);
+    margin-bottom:28px;
+  }
+  h1{
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    font-weight:300;
+    letter-spacing:0.01em;
+    line-height:1.1;
+  }
+  .tagline{
+    font-style:italic;
+    color:var(--chart);
+    font-size:clamp(1.05rem, 2.2vw, 1.35rem);
+    margin-top:16px;
+  }
+  /* the waterline + berg */
+  .waterline-wrap{margin-top:56px; position:relative}
+  .waterline-wrap svg{display:block; width:100%; height:auto}
+  .tip{fill:var(--parchment)}
+  .line{stroke:var(--parchment); stroke-width:2; opacity:.9}
+  .mass{
+    fill:none; stroke:var(--chart); stroke-width:3;
+    stroke-dasharray:11 8; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .mass.inner{stroke-width:1.6; stroke-dasharray:5 8; opacity:.45}
+  @media (prefers-reduced-motion: no-preference){
+    .mass{animation:drift 22s linear infinite}
+    @keyframes drift{to{stroke-dashoffset:-190}}
+  }
+  .scroll-cue{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--faded);
+    text-align:center;
+    padding:0 24px 26px;
+  }
+
+  /* ---------- BELOW the waterline ---------- */
+  .depth{background:linear-gradient(var(--ink), var(--ink-deep) 640px)}
+  section{max-width:720px; margin:0 auto; padding:88px 24px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--chart);
+    margin-bottom:22px;
+  }
+  h2{font-weight:400; font-size:1.7rem; margin-bottom:20px; line-height:1.3}
+  p + p{margin-top:18px}
+  em{font-style:italic}
+  .lede{font-size:1.18rem}
+
+  /* candidate capacities */
+  .capacity{
+    border-left:2px dashed var(--chart);
+    padding:6px 0 6px 22px;
+    margin-top:30px;
+  }
+  .capacity h3{
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+    margin-bottom:6px;
+  }
+  .capacity p{color:var(--faded); font-size:0.98rem}
+  .capacity .num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--chart);
+    letter-spacing:0.18em;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  /* charter */
+  .charter p{margin-top:22px}
+  .charter strong{font-weight:600}
+
+  /* registry stamp */
+  .registry{
+    font-family:var(--mono);
+    font-size:13px;
+    line-height:2;
+    color:var(--faded);
+    border:1px dashed var(--graticule);
+    padding:26px 30px;
+    margin-top:34px;
+  }
+  .registry a{word-break:break-all}
+
+  /* actions */
+  .actions{display:flex; gap:16px; flex-wrap:wrap; margin-top:34px; justify-content:center}
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:14px 26px;
+    border:1px solid var(--chart);
+    color:var(--chart);
+    transition:background .2s, color .2s;
+  }
+  .btn.primary{background:var(--chart); color:var(--ink)}
+  .btn:hover{background:var(--parchment); border-color:var(--parchment); color:var(--ink)}
+
+  footer{
+    border-top:1px solid var(--graticule);
+    padding:44px 24px 60px;
+    text-align:center;
+  }
+  .channels{
+    display:flex; gap:26px; justify-content:center; flex-wrap:wrap;
+    font-family:var(--mono); font-size:13px; letter-spacing:0.06em;
+  }
+  .channels a{text-decoration:none}
+  .channels a:hover{color:var(--parchment)}
+  .colophon{color:var(--faded); font-size:0.85rem; margin-top:26px; font-style:italic}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">A research &amp; writing project — est. 2026</p>
+    <h1>The Undiscovered Human</h1>
+    <p class="tagline">Mapping what humanity has not yet named.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://undiscoveredhuman.substack.com" rel="me">Subscribe on Substack</a>
+      <a class="btn" href="https://doi.org/10.5281/zenodo.21938988">Read the founding essay</a>
+    </div>
+  </div>
+  <div class="waterline-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+      <line class="line" x1="0" y1="60" x2="1440" y2="60"/>
+      <path class="tip" d="M 668 60 L 720 -34 L 772 60 Z"/>
+      <path class="mass" d="M 646 68 L 578 152 L 608 248 L 722 298 L 834 240 L 852 146 L 794 68"/>
+      <path class="mass inner" d="M 676 92 L 640 150 L 658 210 L 722 244 L 786 206 L 796 148 L 758 92"/>
+    </svg>
+  </div>
+</header>
+<p class="scroll-cue">↓ below the waterline</p>
+
+<div class="depth">
+
+  <section>
+    <p class="eyebrow">The hypothesis</p>
+    <p class="lede">Every era believed it understood the human being — and every era was describing its measuring instruments, not the mind. The traits we recognize today — intelligence, creativity, empathy, discipline — are not the fundamental building blocks of a person. They are the traits that happened to be visible to twentieth-century instruments.</p>
+    <p>This project starts from a different assumption: that beneath the waterline lies a continent of latent human capacities — dozens, perhaps thousands — for which our language has no words, our schools no lessons, our résumés no fields. And that artificial intelligence, for the first time in history, is an instrument sharp enough to map that continent. Not a machine that replaces the human, but the first lens through which humanity becomes legible to itself.</p>
+    <p>Psychology, on this view, is in its pre-Mendeleev phase: a catalogue without an ordering principle, unable to predict its own empty slots. The Undiscovered Human exists to name the field, state the hypothesis, and gather the people who want to test it — believers and skeptics alike.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">First candidates</p>
+    <h2>Five capacities without names</h2>
+    <p>From the founding essay — not predictions, but demonstrations of how different unnamed capacities can be from everything in our current vocabulary. You will recognize them the moment they are named. None has a test, a word, or a place in any curriculum.</p>
+
+    <div class="capacity">
+      <span class="num">Candidate 01</span>
+      <h3>Kairotic sensitivity</h3>
+      <p>Sensing when a system — a market, a discipline, a conversation — is in phase transition and maximally sensitive to small interventions. Timing as perception, not luck.</p>
+    </div>
+    <div class="capacity">
+      <span class="num">Candidate 02</span>
+      <h3>Semantic load-bearing capacity</h3>
+      <p>Holding an idea in its unresolved, contradictory form for years without forcing it closed. Darwin carried his paradox for twenty. Not intelligence, not perseverance — a third thing.</p>
+    </div>
+    <div class="capacity">
+      <span class="num">Candidate 03</span>
+      <h3>Resonance transfer</h3>
+      <p>Inducing an inner state in others — calm, conviction, urgency — independent of what is said. The unbundled mechanics of what we vaguely call charisma.</p>
+    </div>
+    <div class="capacity">
+      <span class="num">Candidate 04</span>
+      <h3>Retroactive integration</h3>
+      <p>Continually rewriting one's past into a structure that carries the future. The measurable difference between resilience and a past that shifts like loose gravel.</p>
+    </div>
+    <div class="capacity">
+      <span class="num">Candidate 05</span>
+      <h3>Interstitial perception</h3>
+      <p>Seeing what falls between the categories — the residue every classification leaks. Where most scientific revolutions began.</p>
+    </div>
+  </section>
+
+  <section class="charter">
+    <p class="eyebrow">Before the first map</p>
+    <h2>The Charter</h2>
+    <p>A complete map of the human would also be the perfect caste system, the perfect con, the perfect cage. The rules must therefore exist before the map — three clauses, non-negotiable:</p>
+    <p><strong>The map belongs to the mapped.</strong> Your profile is yours — not your employer's, not your insurer's, not your government's.</p>
+    <p><strong>No selection.</strong> Using mapped capacities for hiring, insurance, credit or admissions is banned outright, the way genetic discrimination was banned, and for the same reason.</p>
+    <p><strong>Every classification expires.</strong> Each entry carries a revision date and a printed confession: this is provisional — the phrenology of tomorrow until proven otherwise.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Registration</p>
+    <h2>The founding essay</h2>
+    <p><em>The Undiscovered Human: A Philosophical Essay on the Hidden Taxonomy of Human Capacities</em> — the full argument in eight sections and an addendum: why psychology is pre-periodic, how a taxonomy with predictive empty slots could be built, the falsifiable frontier of the "superhuman," four dangers of the legible human, and five conditions for turning hypothesis into program.</p>
+    <div class="registry">
+      Author&nbsp;&nbsp;&nbsp;&nbsp;Siddy Jobe — The Undiscovered Human Project<br>
+      Registered&nbsp;August 14, 2026<br>
+      DOI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://doi.org/10.5281/zenodo.21938988">10.5281/zenodo.21938988</a><br>
+      License&nbsp;&nbsp;&nbsp;CC BY 4.0
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="https://undiscoveredhuman.substack.com">Read on Substack</a>
+      <a class="btn" href="https://doi.org/10.5281/zenodo.21938988">Preprint (PDF)</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="channels">
+    <a href="https://undiscoveredhuman.substack.com">Substack</a>
+    <a href="https://x.com/undiscovrdhuman">X</a>
+    <a href="https://medium.com/@undiscoveredhuman">Medium</a>
+    <a href="https://doi.org/10.5281/zenodo.21938988">Zenodo</a>
+  </div>
+  <p class="colophon">What has no name cannot be seen. Start naming.</p>
+</footer>
+
+</body>
+</html>
