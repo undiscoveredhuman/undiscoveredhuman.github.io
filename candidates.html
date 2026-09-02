@@ -80,13 +80,11 @@
 
   /* status legend */
   .legend{
-    display:flex; gap:22px; flex-wrap:wrap; margin-top:20px;
+    display:flex; gap:22px; flex-wrap:wrap; align-items:center; margin-top:20px;
     font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faded);
   }
-  .dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; vertical-align:middle}
-  .dot.nominated{border:1.5px dashed var(--chart)}
-  .dot.discussion{border:1.5px solid var(--chart)}
-  .dot.entry{background:var(--chart)}
+  .legend .item{display:inline-flex; align-items:center; white-space:nowrap; line-height:1}
+  .legend .item svg{width:12px; height:12px; margin-right:8px; flex:0 0 12px; display:block}
 
   /* entries */
   .entry{
@@ -159,9 +157,9 @@
     <li><span class="n">04</span><span><strong>Not a Western artifact.</strong> It recognizably appears across cultures and languages.</span></li>
   </ul>
   <div class="legend">
-    <span><span class="dot nominated"></span>Nominated</span>
-    <span><span class="dot discussion"></span>Under discussion</span>
-    <span><span class="dot entry"></span>Entry</span>
+    <span class="item"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="#5FA8D3" stroke-width="1.5" stroke-dasharray="2.2 2"/></svg>Nominated</span>
+    <span class="item"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="#5FA8D3" stroke-width="1.5"/></svg>Under discussion</span>
+    <span class="item"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="#5FA8D3" stroke="#5FA8D3" stroke-width="1.5"/></svg>Entry</span>
   </div>
 </section>
 
