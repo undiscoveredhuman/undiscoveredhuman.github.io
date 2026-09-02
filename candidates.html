@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Candidate List: The Undiscovered Human</title>
+<meta name="description" content="An open, collaborative pre-taxonomy of human capacities that have no name yet. Nominate one. Most will not survive scrutiny; that is the method working.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1B2A;
+    --ink-deep:#091320;
+    --parchment:#E8E4DA;
+    --chart:#5FA8D3;
+    --graticule:#1B3A5C;
+    --faded:#8FA3B8;
+    --serif:'Spectral', Georgia, 'Times New Roman', serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--serif);
+    font-weight:300;
+    line-height:1.65;
+    font-size:18px;
+    background-image:
+      linear-gradient(var(--graticule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--graticule) 1px, transparent 1px);
+    background-size:220px 220px;
+    background-position:center top;
+  }
+  a{color:var(--chart)}
+  a:focus-visible{outline:2px solid var(--chart); outline-offset:3px}
+
+  nav{
+    max-width:720px; margin:0 auto; padding:28px 24px 0;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+  nav a{text-decoration:none; color:var(--faded)}
+  nav a:hover{color:var(--parchment)}
+
+  header{max-width:720px; margin:0 auto; padding:60px 24px 20px}
+  .kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--chart); margin-bottom:22px;
+  }
+  h1{font-size:clamp(2rem, 5vw, 3.2rem); font-weight:300; line-height:1.1}
+  .tagline{font-style:italic; color:var(--faded); font-size:1.15rem; margin-top:16px}
+
+  .waterline{
+    max-width:720px; margin:36px auto 0; padding:0 24px;
+  }
+  .waterline svg{display:block; width:100%; height:auto}
+  .line{stroke:var(--parchment); stroke-width:2; opacity:.9}
+  .tip{fill:var(--parchment)}
+  .mass{fill:none; stroke:var(--chart); stroke-width:2.5; stroke-dasharray:10 8; stroke-linecap:round; stroke-linejoin:round}
+
+  section{max-width:720px; margin:0 auto; padding:64px 24px}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--chart); margin-bottom:22px;
+  }
+  h2{font-weight:400; font-size:1.6rem; margin-bottom:18px; line-height:1.3}
+  p + p{margin-top:18px}
+  em{font-style:italic}
+
+  /* rules */
+  .rules{list-style:none; margin-top:24px}
+  .rules li{
+    border-top:1px dashed var(--graticule); padding:16px 0 16px 0;
+    display:grid; grid-template-columns:2.6rem 1fr; gap:14px;
+  }
+  .rules li:last-child{border-bottom:1px dashed var(--graticule)}
+  .rules .n{font-family:var(--mono); font-size:12px; color:var(--chart); letter-spacing:0.18em; padding-top:4px}
+
+  /* status legend */
+  .legend{
+    display:flex; gap:22px; flex-wrap:wrap; margin-top:20px;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faded);
+  }
+  .dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; vertical-align:middle}
+  .dot.nominated{border:1.5px dashed var(--chart)}
+  .dot.discussion{border:1.5px solid var(--chart)}
+  .dot.entry{background:var(--chart)}
+
+  /* entries */
+  .entry{
+    border-left:2px dashed var(--chart); padding:8px 0 8px 22px; margin-top:30px;
+  }
+  .entry .meta{
+    font-family:var(--mono); font-size:11px; color:var(--chart); letter-spacing:0.18em;
+    text-transform:uppercase; display:block; margin-bottom:6px;
+  }
+  .entry h3{font-weight:600; font-size:1.05rem; margin-bottom:6px; letter-spacing:0.02em}
+  .entry p{color:var(--faded); font-size:0.98rem}
+  .entry a{font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-decoration:none}
+  .entry a:hover{text-decoration:underline}
+
+  /* nomination box */
+  .nominate{
+    border:1px dashed var(--graticule); padding:30px; margin-top:28px;
+  }
+  .nominate ol{margin:16px 0 0 22px}
+  .nominate li{margin-top:8px}
+  .actions{display:flex; gap:16px; flex-wrap:wrap; margin-top:28px}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    text-decoration:none; padding:14px 26px; border:1px solid var(--chart); color:var(--chart);
+    transition:background .2s, color .2s;
+  }
+  .btn.primary{background:var(--chart); color:var(--ink)}
+  .btn:hover{background:var(--parchment); border-color:var(--parchment); color:var(--ink)}
+  .fine{font-family:var(--mono); font-size:12px; color:var(--faded); line-height:1.8; margin-top:22px}
+
+  footer{border-top:1px solid var(--graticule); padding:44px 24px 60px; text-align:center}
+  .channels{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; font-family:var(--mono); font-size:13px; letter-spacing:0.06em}
+  .channels a{text-decoration:none}
+  .channels a:hover{color:var(--parchment)}
+  .colophon{color:var(--faded); font-size:0.85rem; margin-top:26px; font-style:italic}
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">← The Undiscovered Human</a></nav>
+
+<header>
+  <p class="kicker">Open pre-taxonomy · revised continuously</p>
+  <h1>The Candidate List</h1>
+  <p class="tagline">Human capacities that have no name yet. Nominated by readers, tested against four thresholds, kept provisional on purpose.</p>
+</header>
+
+<div class="waterline" aria-hidden="true">
+  <svg viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg">
+    <line class="line" x1="0" y1="30" x2="720" y2="30"/>
+    <path class="tip" d="M 338 30 L 360 -8 L 382 30 Z"/>
+    <path class="mass" d="M 326 36 L 294 74 L 306 110 L 362 122 L 418 106 L 428 72 L 396 36"/>
+  </svg>
+</div>
+
+<section>
+  <p class="eyebrow">Why a list</p>
+  <p>Every taxonomy in the history of science began as a list of things somebody noticed before anybody could explain them. Mendeleev had a table with gaps. Linnaeus had drawers of specimens. Before the periodic table of human capacities can exist, somebody has to collect the specimens: the recurring, recognizable human abilities that no personality test measures and no language has bothered to name.</p>
+  <p>That is what this page is. It is not a scientific instrument. It is the drawer of specimens that precedes one.</p>
+</section>
+
+<section>
+  <p class="eyebrow">The rules</p>
+  <h2>How a nomination becomes an entry</h2>
+  <p>A nomination is a hypothesis. It earns a place only through evidence, and most will not survive. That is not a failure of the list; it is the method working. To graduate from <em>nominated</em> to <em>entry</em>, a capacity has to clear the same four thresholds set out in the founding essay:</p>
+  <ul class="rules">
+    <li><span class="n">01</span><span><strong>Stable.</strong> It shows up in the same person across time and situations, not just once.</span></li>
+    <li><span class="n">02</span><span><strong>Measurable elsewhere.</strong> It can be observed with an instrument other than the anecdote that suggested it.</span></li>
+    <li><span class="n">03</span><span><strong>Not old wine.</strong> It predicts something that intelligence and the Big Five do not already explain.</span></li>
+    <li><span class="n">04</span><span><strong>Not a Western artifact.</strong> It recognizably appears across cultures and languages.</span></li>
+  </ul>
+  <div class="legend">
+    <span><span class="dot nominated"></span>Nominated</span>
+    <span><span class="dot discussion"></span>Under discussion</span>
+    <span><span class="dot entry"></span>Entry</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">The list</p>
+  <h2>Current candidates</h2>
+  <p>The first five come from the founding essay and have cleared none of the thresholds yet. They are well-shaped hypotheses, nothing more. Each gets a full treatment in the series; the links follow as installments are published.</p>
+
+  <div class="entry">
+    <span class="meta">Candidate 01 · Under discussion · Series installment in preparation</span>
+    <h3>Kairotic sensitivity</h3>
+    <p>Sensing when a system is in phase transition and maximally responsive to intervention. Timing as perception, not luck. Fails in flat stretches; pairs well with grinders.</p>
+  </div>
+  <div class="entry">
+    <span class="meta">Candidate 02 · Nominated · From the founding essay</span>
+    <h3>Semantic load-bearing capacity</h3>
+    <p>Holding an unresolved problem for years without forcing it closed. Not intelligence, not perseverance; a third thing, and possibly the best-kept predictor of fundamental breakthroughs.</p>
+  </div>
+  <div class="entry">
+    <span class="meta">Candidate 03 · Nominated · From the founding essay</span>
+    <h3>Resonance transfer</h3>
+    <p>Inducing an inner state in others independent of what is said. The unbundled mechanics of what we vaguely call charisma; probably several capacities wearing one coat.</p>
+  </div>
+  <div class="entry">
+    <span class="meta">Candidate 04 · Nominated · From the founding essay</span>
+    <h3>Retroactive integration</h3>
+    <p>Continually rewriting one's past into a structure that carries the future. The measurable difference between resilience and a past that shifts like loose gravel.</p>
+  </div>
+  <div class="entry">
+    <span class="meta">Candidate 05 · Nominated · From the founding essay</span>
+    <h3>Interstitial perception</h3>
+    <p>Seeing what falls between the categories, the residue every classification leaks. Where most scientific revolutions began.</p>
+  </div>
+
+  <p style="margin-top:34px; color:var(--faded); font-style:italic">Reader nominations appear here once reviewed. The first ones are being collected now.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Nominate</p>
+  <h2>Send the taxonomy an observation</h2>
+  <p>You have almost certainly known someone with an ability that fits no test and no word. The colleague who always knows which week a decision can actually be made. The friend who can carry a contradiction for a decade. The relative who sees what everyone's categories filter out. That observation is data of the informal kind that precedes every formal taxonomy.</p>
+  <div class="nominate">
+    <strong>A nomination has three parts:</strong>
+    <ol>
+      <li><strong>A proposed name</strong>, even a clumsy one. Names can be fixed; unnamed things cannot be discussed.</li>
+      <li><strong>One paragraph</strong> describing the capacity: what it does, what it is not (which existing trait it might be confused with), and what its failure mode looks like.</li>
+      <li><strong>One concrete example</strong> from a real life, anonymized. Yours or someone else's.</li>
+    </ol>
+    <div class="actions">
+      <a class="btn primary" href="mailto:hello@undiscoveredhuman.com?subject=Nomination%3A%20%5Bproposed%20name%5D&body=PROPOSED%20NAME%3A%0A%0ADESCRIPTION%20(what%20it%20does%2C%20what%20it%20is%20not%2C%20failure%20mode)%3A%0A%0AONE%20CONCRETE%20EXAMPLE%20(anonymized)%3A%0A%0AMay%20we%20credit%20you%20by%20name%20or%20initials%20if%20the%20nomination%20is%20listed%3F%20(yes%2Fno%2C%20and%20how)%3A%0A">Nominate by email</a>
+      <a class="btn" href="https://undiscoveredhuman.substack.com">Or comment on Substack</a>
+    </div>
+    <p class="fine">Every nomination is read. Listed nominations credit the nominator by name or initials, with permission. Nominations are reviewed against the four thresholds; most will remain nominated, some will be discussed in the series, few will become entries. Nothing here measures anyone. See the Charter in the founding essay: the map belongs to the mapped, no selection, every classification expires.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="channels">
+    <a href="index.html">Home</a>
+    <a href="https://undiscoveredhuman.substack.com">Substack</a>
+    <a href="https://x.com/undiscovrdhuman">X</a>
+    <a href="https://doi.org/10.5281/zenodo.21938988">Founding essay (DOI)</a>
+  </div>
+  <p class="colophon">What has no name cannot be seen. Start naming.</p>
+</footer>
+
+</body>
+</html>
