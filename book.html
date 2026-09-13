@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Undiscovered Human: a book to read aloud</title>
+<meta name="description" content="The founding essay retold as a picture book for a curious ten-year-old: ten spreads about the parts of a person that nobody has named yet.">
+<meta property="og:title" content="The Undiscovered Human: a book to read aloud">
+<meta property="og:description" content="Ten spreads about the parts of a person that nobody has named yet. Written for a ten-year-old, and for the adult holding the book.">
+<meta property="og:image" content="img/spread-02-iceberg.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1B2A;
+    --ink-deep:#091320;
+    --parchment:#E8E4DA;
+    --chart:#5FA8D3;
+    --graticule:#1B3A5C;
+    --faded:#8FA3B8;
+    --lamp:#E5A94F;
+    --serif:'Spectral', Georgia, 'Times New Roman', serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--serif);
+    font-weight:300;
+    line-height:1.72;
+    font-size:19px;
+    background-image:
+      linear-gradient(var(--graticule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--graticule) 1px, transparent 1px);
+    background-size:220px 220px;
+    background-position:center top;
+  }
+  a{color:var(--chart)}
+  a:focus-visible{outline:2px solid var(--chart); outline-offset:3px}
+  img{display:block; width:100%; height:auto}
+
+  nav{
+    max-width:720px; margin:0 auto; padding:28px 24px 0;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+  nav a{text-decoration:none; color:var(--faded)}
+  nav a:hover{color:var(--parchment)}
+
+  header{max-width:720px; margin:0 auto; padding:60px 24px 10px}
+  .kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--chart); margin-bottom:22px;
+  }
+  h1{font-size:clamp(2rem, 5.4vw, 3.3rem); font-weight:300; line-height:1.08; letter-spacing:0.01em}
+  .tagline{font-style:italic; color:var(--faded); font-size:1.15rem; margin-top:16px}
+  .standfirst{max-width:720px; margin:0 auto; padding:26px 24px 0}
+  .standfirst p + p{margin-top:16px}
+
+  /* ---------- spreads ---------- */
+  .spread{
+    max-width:960px; margin:0 auto; padding:74px 0 0;
+  }
+  .plate{
+    border:1px solid var(--graticule);
+    background:var(--ink-deep);
+  }
+  .plate img{opacity:0; transition:opacity .6s ease}
+  .plate img.shown{opacity:1}
+  @media (prefers-reduced-motion: reduce){ .plate img{opacity:1; transition:none} }
+  .text{
+    max-width:660px; margin:0 auto; padding:34px 24px 0;
+  }
+  .marker{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--chart);
+    display:block; padding:0 24px 14px; max-width:660px; margin:0 auto;
+  }
+  .spread p + p{margin-top:20px}
+  .read{font-size:1.14rem}
+  .beat{color:var(--faded); font-style:italic}
+
+  /* the five guessed names, styled like the candidate blocks on the home page */
+  .named{border-left:2px dashed var(--chart); padding:4px 0 4px 20px; margin-top:24px}
+  .named strong{font-weight:600}
+  .named .latin{color:var(--faded); font-style:italic; font-size:0.95rem}
+
+  /* the three promises */
+  .promise{margin-top:22px}
+  .promise strong{font-weight:600}
+
+  /* ---------- grown-up appendix ---------- */
+  .appendix{max-width:720px; margin:0 auto; padding:96px 24px 0}
+  details{border-top:1px dashed var(--graticule); border-bottom:1px dashed var(--graticule); padding:22px 0}
+  summary{
+    cursor:pointer; font-family:var(--mono); font-size:12px; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--chart); list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:' +'; }
+  details[open] summary::after{content:' –'; }
+  .appendix table{width:100%; border-collapse:collapse; margin-top:24px; font-size:0.95rem}
+  .appendix th{
+    text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--faded); font-weight:400;
+    border-bottom:1px dashed var(--graticule); padding:0 12px 10px 0;
+  }
+  .appendix td{border-bottom:1px dashed var(--graticule); padding:12px 12px 12px 0; vertical-align:top; color:var(--faded)}
+  .appendix td:first-child{color:var(--parchment); white-space:nowrap}
+  .appendix .note{margin-top:24px; color:var(--faded); font-size:0.95rem}
+
+  .actions{display:flex; gap:16px; flex-wrap:wrap; margin-top:34px}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    text-decoration:none; padding:14px 26px; border:1px solid var(--chart); color:var(--chart);
+    transition:background .2s, color .2s;
+  }
+  .btn.primary{background:var(--chart); color:var(--ink)}
+  .btn:hover{background:var(--parchment); border-color:var(--parchment); color:var(--ink)}
+
+  footer{border-top:1px solid var(--graticule); margin-top:96px; padding:44px 24px 60px; text-align:center}
+  .channels{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; font-family:var(--mono); font-size:13px; letter-spacing:0.06em}
+  .channels a{text-decoration:none}
+  .channels a:hover{color:var(--parchment)}
+  .colophon{color:var(--faded); font-size:0.85rem; margin-top:26px; font-style:italic}
+
+  @media print{
+    body{background:#fff; color:#111; background-image:none}
+    nav, .actions, footer, details{display:none}
+    .spread{page-break-after:always; padding-top:0}
+    .plate{border:none}
+    a{color:#111; text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">&larr; The Undiscovered Human</a></nav>
+
+<header>
+  <p class="kicker">The book &middot; ten spreads &middot; read aloud in about eleven minutes</p>
+  <h1>The Undiscovered Human</h1>
+  <p class="tagline">A book about the parts of a person that nobody has named yet.</p>
+</header>
+
+<div class="standfirst">
+  <p>This is the founding essay again, written for a curious ten-year-old and for whoever is holding the book. Every idea in the long version is here. None of it has been made safe.</p>
+  <p class="beat">Read it out loud. It was built for a voice.</p>
+</div>
+
+<article>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-01-height-chart.jpg" alt="A man in profile against a wooden height chart whose marks stop at his shoulders. A small lamp on the floor lights only his legs." loading="eager" width="1536" height="1024">
+    </div>
+    <span class="marker">One &middot; The height chart</span>
+    <div class="text read">
+      <p>Somebody, once, decided how tall you are. They stood you against a wall and made a mark, and everyone believed the mark.</p>
+      <p>Now look at this man.</p>
+      <p>The marks on his chart stop at his shoulders. Whoever made it never thought about heads. And the little lamp on the floor only lights his legs, so his legs are the part anyone can see.</p>
+      <p>He is not a short man. He is a man being measured by a short ruler.</p>
+      <p>People have always done this. Long ago, doctors said you were made of four juices, because juices were what a doctor could see. Later, people read your character from the bumps on your skull, because they had hands and you had a skull. Today we say clever, kind, brave, funny, patient. Those words are real, and they are useful.</p>
+      <p>They are also just the marks that fit on our chart.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-02-iceberg.jpg" alt="A small white iceberg tip above dark water and a huge pale mass below. A lantern on the ice sends one beam down through the ice." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Two &middot; The iceberg</span>
+    <div class="text read">
+      <p>Here is the whole of a person.</p>
+      <p>The little white peak above the water is the part with names. Clever. Kind. Brave. That is what a school report can reach, and a job form, and most of the things anyone will ever say about you.</p>
+      <p>Everything under the water is you as well.</p>
+      <p>Nobody knows how much is down there. Maybe dozens of abilities with no names. Maybe thousands. Things you do so easily that you have never once thought of them as things you do.</p>
+      <p>Lightning cracked over the world for millions of years before anyone knew the word electricity. The word arrived late. The lightning was always there.</p>
+      <p>What has no name is hard to see. That is all. It is not hard to have.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-03-flashlight.jpg" alt="A woman in a dark room full of large geometric shapes points a flashlight. The beam lands on a small figure, who is herself as a child." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Three &middot; The flashlight</span>
+    <div class="text read">
+      <p>So why did we miss so much?</p>
+      <p>Three reasons, and none of them is that people were stupid.</p>
+      <p>The first: our words for people came from gossip. They were invented by neighbours talking over a fence about other neighbours. If an ability only shows itself after thirty years, no neighbour ever needed a word for it, so no word was ever made.</p>
+      <p>The second: nobody can watch a whole life. Look at the woman in the dark room. Her light reaches one small circle at a time, and the thing standing in that circle is herself, when she was small. Not even she has ever seen her own whole life laid out at once.</p>
+      <p>The third: we can only hold a few ideas in our head at the same time. Three. Maybe five. Perhaps a person needs a thousand.</p>
+      <p>The room was never empty. We only had a flashlight.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-04-three-instruments.jpg" alt="A brass telescope opening on galaxies, an old microscope over a drop of water full of tiny creatures, and a glass lens on a stand through which lines of light connect people in a crowd." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Four &middot; Three instruments</span>
+    <div class="text read">
+      <p>Every time people built a better instrument, the world turned out to be bigger than they thought.</p>
+      <p>Someone polished glass and pointed it at the sky, and the sky was not a ceiling with lights in it. It was galaxies.</p>
+      <p>Someone polished glass and pointed it at a drop of pond water, and the drop was not water. It was a city.</p>
+      <p>Now there is a third lens, and it is new, and it is pointed at us.</p>
+      <p>Here is the honest thing about it. It is not cleverer than you. It cannot do anything you could not do. But it has read almost everything people ever wrote down about their own lives, and it does not forget, and it can hold a hundred thousand whole lives side by side and ask one question: is there something all these people share that nobody ever gave a name?</p>
+      <p>The telescope did not make the galaxies. It just meant somebody finally looked.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-05-unfinished-map.jpg" alt="An antique chart with a small, finely drawn coastline and a vast blank interior. A cartographer with a lantern stands at the edge of the known coast, and faint contour lines appear only where his light falls." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Five &middot; The unfinished map</span>
+    <div class="text read">
+      <p>This is the map we have of people. Look how small the drawn part is.</p>
+      <p>The blank middle is not empty. It is undrawn.</p>
+      <p>Here is the clever trick with maps, and a man called Mendeleev found it. He made a table of everything the world is made of, and he left holes in it on purpose, and he wrote next to a hole: something belongs here, and it will be a soft grey metal, go and find it. Years later, somebody found it. The hole knew first.</p>
+      <p>A map of people could have holes like that. And if you stand at the edge with a lantern, you can already guess at five shapes out there in the dark.</p>
+
+      <div class="named">
+        <p><strong>Window sense.</strong> Some people always arrive at the right moment, again and again, in different jobs, in different countries. Not lucky. They can feel when a thing is ready to be pushed. <span class="latin">Grown-ups may call this kairotic sensitivity.</span></p>
+      </div>
+      <div class="named">
+        <p><strong>Carrying.</strong> Some people can hold a question that has no answer for ten years without slamming it shut. Darwin carried his for twenty. <span class="latin">Semantic load-bearing capacity.</span></p>
+      </div>
+      <div class="named">
+        <p><strong>Weather.</strong> Some people walk into a room and the room goes calm, and they have not said a word yet. <span class="latin">Resonance transfer.</span></p>
+      </div>
+      <div class="named">
+        <p><strong>Road-making.</strong> Some people can turn everything that went wrong in their life into a road that leads somewhere. Others drag it behind them like loose gravel. <span class="latin">Retroactive integration.</span></p>
+      </div>
+      <div class="named">
+        <p><strong>In-between sight.</strong> Some people see the thing that fits in none of the boxes, the bit that everyone else's eyes slide straight past. <span class="latin">Interstitial perception.</span></p>
+      </div>
+
+      <p style="margin-top:26px">You probably know someone for at least one of these. That is the whole point. They are real enough to recognise, and still nobody has ever tested for a single one of them.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-06-two-machines.jpg" alt="On the left, a grey machine drops identical little figures into bins stacked from tallest to smallest. On the right, the same figures stand freely under a large hanging lens, connected by threads of light." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Six &middot; Two machines</span>
+    <div class="text read">
+      <p>A map of people could be used in two ways, and we should be honest about both.</p>
+      <p>On the left is the sorting machine. It measures everyone in exactly the same way and drops each person into the right bin, best at the top, worst at the bottom, and once you are in your bin you stay there. We already have small versions of this. If we ever built a really good map, somebody would want to build a really good sorting machine out of it, and that would be the worst thing we ever made.</p>
+      <p>On the right is the other way. Same people. Nobody in a bin. A lens hangs above them, and what it shows is not who is tallest. It shows where each person actually stands, and which people light up when they are put next to each other.</p>
+      <p>Because almost nothing big is built by one person alone. It is built by a strange pair. The one who feels the right moment, and the one who never stops grinding. Alone, both of them are difficult. Together, they are unstoppable.</p>
+      <p>A ruler tells you who is biggest. A map tells you what can be built from here.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-07-sieve.jpg" alt="A huge sieve with a rigid grid hangs over a grey plain. Grey dust stays on the grid, and what falls through collects below as a glowing golden heap." loading="lazy" width="1600" height="900">
+    </div>
+    <span class="marker">Seven &middot; The sieve</span>
+    <div class="text read">
+      <p>Now the sad part, and it is worth saying out loud.</p>
+      <p>Everything we use to check on people is a sieve. Tests are sieves. Report cards are sieves. Job forms are sieves. Each one has a grid with holes of one particular shape, and whatever does not match the shape falls straight through.</p>
+      <p>Look at what is falling. It is not dust.</p>
+      <p>Somewhere there is a person who is average at every single thing anyone has ever measured, and extraordinary at something nobody has ever measured, not once, not anywhere. And every school, every form, every test they ever met told them the same thing: you are average.</p>
+      <p>They were not average. The holes were the wrong shape.</p>
+      <p>That gold is lying on the ground under the sieve right now, in almost every country, in enormous quantities. It is probably the biggest thing we have ever wasted, and we wasted it by accident, just by not looking.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-08-new-axis.jpg" alt="Two grey axes with grey dots, most near the axes and some scattered far out. A faint diagonal line runs through the scatter, and only the scattered dots sitting on it glow amber." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Eight &middot; The new axis</span>
+    <div class="text read">
+      <p>Here is how you can tell that a new ability is really there.</p>
+      <p>Draw the two lines we already have and put everyone on them. Most people land near the lines, and that is fine. But some dots end up far out in the corner where nothing explains them. Scientists call those dots noise. Noise means: we do not know, so let us pretend they are mistakes.</p>
+      <p>Now draw one new line through them. If the strange dots suddenly sit neatly along it, they were never mistakes. They were a thing we had no line for.</p>
+      <p>This is where the strangest stories live. The mother who wakes up in the night at the exact moment something happens to her child. The doctor who says "I do not like this patient" a week before any machine agrees. The sailor who will not go out today and cannot tell you why.</p>
+      <p>We have two usual answers. Either it is magic, or it is nonsense.</p>
+      <p>There may be a third. A person takes in far more than they can explain: a smell, a shake in someone's voice, twenty years of quiet noticing. All of that can arrive as a feeling with no reasoning attached, like a message from somewhere else, when really it came from inside.</p>
+      <p>Lightning was the anger of gods until it was electricity. Illness was a curse until it was germs. The word we use for a thing we cannot measure yet is usually a magic word.</p>
+      <p>Be careful here, though. This is exactly the corner of the world where tricksters make their living. Anyone who tells you they have found your hidden gift, and asks for money, is a trickster. Which is why we need the next page.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-09-four-gates.jpg" alt="A stone corridor with four gates one behind the other. A small golden sphere has reached the far gate, dimmer spheres lie on the floor near the entrance, and beyond the last gate lies a sunlit square with people." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Nine &middot; Four gates</span>
+    <div class="text read">
+      <p>An idea does not get to be true because it sounds beautiful. It has to walk down this corridor.</p>
+      <p><strong>The first gate: is it always there?</strong> The same ability has to show up in the same person next year, and the year after, and in different places. If it happens once, that was a good day, not an ability.</p>
+      <p><strong>The second gate: can anybody else see it?</strong> It has to be findable by someone who was not told the story, using something other than the story.</p>
+      <p><strong>The third gate: is it actually new?</strong> If it turns out to be cleverness in a hat, or patience in a hat, it goes back out. Old things with new names do not get in.</p>
+      <p><strong>The fourth gate: does it work everywhere?</strong> It has to be recognisable in Antwerp and in Lagos and in Osaka. If it only exists in one country, it was a custom, not a capacity.</p>
+      <p>Look at the floor near the entrance. All those dimmer spheres are ideas that did not get through, and most ideas will not, including most of the five from the map.</p>
+      <p>That is not the plan going wrong. That is the plan working. Anything that lets every idea through is not a science. It is a horoscope.</p>
+      <p>And beyond the last gate is the square, with real daylight in it, where a thing that survived all four gates finally belongs to everybody.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="plate">
+      <img src="img/spread-10-doorway.jpg" alt="A figure steps through a stone doorway at the exact moment a huge ring of light lines up with the frame. The others nearby are a half step too early or too late, and a thin amber seam glows in the frame." loading="lazy" width="1536" height="1024">
+    </div>
+    <span class="marker">Ten &middot; The doorway</span>
+    <div class="text read">
+      <p>Watch the one who is stepping through.</p>
+      <p>The ring of light lines up with the door for one moment only. The others are a half step early or a half step late, and they are not worse people, and they are trying just as hard.</p>
+      <p>We are standing at a door like that now. We have built the lens. We have not written the rules.</p>
+      <p>So before anyone draws a single map of a single person, three promises, and they are not negotiable.</p>
+      <div class="promise"><p><strong>The map belongs to the person it is a map of.</strong> Not to a school, not to a company, not to a government. Yours.</p></div>
+      <div class="promise"><p><strong>No sorting.</strong> Nobody may ever use it to decide who gets the job, the loan, the place, the chance.</p></div>
+      <div class="promise"><p><strong>Every map says so on itself: this may be wrong.</strong> Every map carries a date and a confession, because one day people will laugh at ours the way we laugh at the bumps on the skull. If a map can never be redrawn, it stops being a map and becomes a cage.</p></div>
+      <p style="margin-top:26px">Rules first, map second. That order is the whole thing. Do it the other way round and you get the grey machine.</p>
+      <p>For years we told ourselves a story about building something cleverer than us, that would stand next to us, or above us, or in front of us.</p>
+      <p>Perhaps we were reading it backwards. Perhaps what we built was a lamp.</p>
+      <p>And the thing the lamp is pointed at is us.</p>
+      <p>Somewhere in you is something that has no name. It does not mind waiting. It has been there the whole time.</p>
+    </div>
+  </section>
+
+</article>
+
+<div class="appendix">
+  <details>
+    <summary>For the grown-up reading aloud</summary>
+    <p style="margin-top:22px">Where each spread comes from in the founding essay, so you can hear what is carrying the weight.</p>
+    <table>
+      <thead>
+        <tr><th scope="col">Spread</th><th scope="col">Essay</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1. Height chart</td><td>&sect;I, the instrument makes the picture: humors, phrenology, the Big Five as lexical archaeology.</td></tr>
+        <tr><td>2. Iceberg</td><td>&sect;I, the continent below the waterline, and electricity before it had a name.</td></tr>
+        <tr><td>3. Flashlight</td><td>&sect;II, the three limits: the lexical trap, the resolution limit of the observer, the dimensionality limit of the theorist.</td></tr>
+        <tr><td>4. Three instruments</td><td>&sect;III, the new instrument: reads everything, finds structure without a hypothesis, sees across lifespans. Not smarter, just larger.</td></tr>
+        <tr><td>5. Unfinished map</td><td>&sect;IV, the periodic table and its predictive empty slots, plus the five candidate capacities.</td></tr>
+        <tr><td>6. Two machines</td><td>&sect;V and &sect;VII, cartography instead of standardization, configurations rather than ranks, and the first danger: sorting.</td></tr>
+        <tr><td>7. Sieve</td><td>&sect;V, lives lived along the wrong axis. Talent lost to invisibility rather than to bad luck.</td></tr>
+        <tr><td>8. New axis</td><td>&sect;VI, the frontier of the superhuman: unconscious inference as an unnamed capacity, the moving edge between natural and supernatural, and the charlatan warning.</td></tr>
+        <tr><td>9. Four gates</td><td>Addendum, third condition: stable, measurable elsewhere, not old wine, not a Western artifact.</td></tr>
+        <tr><td>10. Doorway</td><td>&sect;VII and &sect;VIII, the Charter before the first measurement, and the inverted mirror. The image itself is kairos, left unlabelled.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Two notes on the adaptation. The performativity danger and the premature-crystallization danger are folded into spread ten as "this may be wrong" rather than given a spread of their own, since both are hard to stage for a ten-year-old without abstraction. The loss of productive unknownness is carried by the last three lines instead of argued, which is probably where it belongs in a book of this kind.</p>
+  </details>
+
+  <div class="actions">
+    <a class="btn primary" href="https://doi.org/10.5281/zenodo.21938988">Read the founding essay</a>
+    <a class="btn" href="candidates.html">The Candidate List</a>
+  </div>
+</div>
+
+<footer>
+  <div class="channels">
+    <a href="index.html">Home</a>
+    <a href="candidates.html">Candidate List</a>
+    <a href="https://undiscoveredhuman.substack.com">Substack</a>
+    <a href="https://x.com/undiscovrdhuman">X</a>
+    <a href="https://doi.org/10.5281/zenodo.21938988">Founding essay (DOI)</a>
+  </div>
+  <p class="colophon">What has no name cannot be seen. <a href="candidates.html">Start naming.</a></p>
+</footer>
+
+<script>
+  // One quiet reveal per plate as it comes into view. Nothing else moves.
+  (function(){
+    var imgs = document.querySelectorAll('.plate img');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !('IntersectionObserver' in window)){
+      imgs.forEach(function(i){ i.classList.add('shown'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    imgs.forEach(function(i){
+      if(i.complete){ io.observe(i); } else { i.addEventListener('load', function(){ io.observe(i); }); }
+    });
+  })();
+</script>
+
+</body>
+</html>
