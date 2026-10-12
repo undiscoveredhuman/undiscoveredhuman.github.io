@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Field: The Undiscovered Human</title>
+<meta name="description" content="Thirty-three strangers describing human capacities that have no name, collected from public posts over thirty-two daily sweeps. The argument for an undiscovered human, in other people's words.">
+<link rel="canonical" href="https://undiscoveredhuman.com/field.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Undiscovered Human">
+<meta property="og:url" content="https://undiscoveredhuman.com/field.html">
+<meta property="og:title" content="Nobody has a word for this">
+<meta property="og:description" content="Every morning an instrument reads the public record looking for people describing an ability that no test measures and no language has named. Thirty-two sweeps, thirty-five posts kept, nine mornings with nothing. None of the authors had heard of this project.">
+<meta property="og:image" content="https://undiscoveredhuman.com/img/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A small iceberg tip above dark water, with a vast lit mass beneath the surface.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1B2A;
+    --ink-deep:#091320;
+    --parchment:#E8E4DA;
+    --chart:#5FA8D3;
+    --graticule:#1B3A5C;
+    --faded:#8FA3B8;
+    --serif:'Spectral', Georgia, 'Times New Roman', serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--serif);
+    font-weight:300;
+    line-height:1.65;
+    font-size:18px;
+    background-image:
+      linear-gradient(var(--graticule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--graticule) 1px, transparent 1px);
+    background-size:220px 220px;
+    background-position:center top;
+  }
+  a{color:var(--chart)}
+  a:focus-visible{outline:2px solid var(--chart); outline-offset:3px}
+
+  nav{
+    max-width:720px; margin:0 auto; padding:28px 24px 0;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+  nav a{text-decoration:none; color:var(--faded)}
+  nav a:hover{color:var(--parchment)}
+
+  header{max-width:720px; margin:0 auto; padding:60px 24px 20px}
+  .kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--chart); margin-bottom:22px;
+  }
+  h1{font-size:clamp(2rem, 5vw, 3.2rem); font-weight:300; line-height:1.1}
+  .tagline{font-style:italic; color:var(--faded); font-size:1.15rem; margin-top:16px}
+
+  .waterline{max-width:720px; margin:36px auto 0; padding:0 24px}
+  .waterline svg{display:block; width:100%; height:auto}
+  .line{stroke:var(--parchment); stroke-width:2; opacity:.9}
+  .tip{fill:var(--parchment)}
+  .mass{fill:none; stroke:var(--chart); stroke-width:2.5; stroke-dasharray:10 8; stroke-linecap:round; stroke-linejoin:round}
+
+  section{max-width:720px; margin:0 auto; padding:64px 24px}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--chart); margin-bottom:22px;
+  }
+  h2{font-weight:400; font-size:1.6rem; margin-bottom:18px; line-height:1.3}
+  p + p{margin-top:18px}
+  em{font-style:italic}
+
+  .counts{
+    display:flex; gap:34px; flex-wrap:wrap; margin-top:30px;
+    border-top:1px dashed var(--graticule); border-bottom:1px dashed var(--graticule);
+    padding:20px 0;
+  }
+  .counts div{min-width:92px}
+  .counts .n{font-family:var(--mono); font-size:1.5rem; color:var(--chart); display:block; line-height:1.2}
+  .counts .l{font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faded)}
+
+  /* specimen blocks */
+  .specimen{margin-top:46px; border-left:2px dashed var(--chart); padding-left:22px}
+  .specimen:first-of-type{margin-top:30px}
+  .specimen .handle{
+    font-family:var(--mono); font-size:11px; color:var(--chart); letter-spacing:0.18em;
+    text-transform:uppercase; display:block; margin-bottom:14px;
+  }
+  .specimen .handle a{text-decoration:none}
+  .specimen .handle a:hover{text-decoration:underline}
+  .embed{margin:0 0 16px 0}
+  .embed blockquote{
+    font-family:var(--mono); font-size:13px; color:var(--faded);
+    border:1px dashed var(--graticule); padding:16px; line-height:1.7;
+  }
+  .embed blockquote a{text-decoration:none}
+  .read{color:var(--faded); font-size:0.98rem}
+  .read strong{color:var(--parchment); font-weight:600}
+  .verdict{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--faded); margin-top:10px; display:block;
+  }
+  .verdict b{color:var(--chart); font-weight:500}
+
+  .alsolist{list-style:none; margin-top:24px}
+  .alsolist li{
+    border-top:1px dashed var(--graticule); padding:14px 0;
+    display:grid; grid-template-columns:11rem 1fr; gap:14px; font-size:0.95rem; color:var(--faded);
+  }
+  .alsolist li:last-child{border-bottom:1px dashed var(--graticule)}
+  .alsolist .who{font-family:var(--mono); font-size:12px; letter-spacing:0.04em}
+  .alsolist .who a{text-decoration:none}
+
+  .charter{border:1px dashed var(--graticule); padding:30px; margin-top:28px}
+  .charter ol{margin:16px 0 0 22px}
+  .charter strong{color:var(--parchment); font-weight:600}
+  .charter li{margin-top:8px}
+  .actions{display:flex; gap:16px; flex-wrap:wrap; margin-top:28px}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    text-decoration:none; padding:14px 26px; border:1px solid var(--chart); color:var(--chart);
+    transition:background .2s, color .2s;
+  }
+  .btn.primary{background:var(--chart); color:var(--ink)}
+  .btn:hover{background:var(--parchment); border-color:var(--parchment); color:var(--ink)}
+  .fine{font-family:var(--mono); font-size:12px; color:var(--faded); line-height:1.8; margin-top:22px}
+
+  footer{border-top:1px solid var(--graticule); padding:44px 24px 60px; text-align:center}
+  .channels{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; font-family:var(--mono); font-size:13px; letter-spacing:0.06em}
+  .channels a{text-decoration:none}
+  .channels a:hover{color:var(--parchment)}
+  .colophon{color:var(--faded); font-size:0.85rem; margin-top:26px; font-style:italic}
+
+  @media (max-width:560px){
+    .alsolist li{grid-template-columns:1fr; gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<nav><a href="index.html">← The Undiscovered Human</a></nav>
+
+<header>
+  <p class="kicker">Field log · public posts · thirty-two daily sweeps</p>
+  <h1>Nobody has a word for this</h1>
+  <p class="tagline">The argument of this project, written by people who had never heard of this project.</p>
+</header>
+
+<div class="waterline" aria-hidden="true">
+  <svg viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg">
+    <line class="line" x1="0" y1="30" x2="720" y2="30"/>
+    <path class="tip" d="M 338 30 L 360 -8 L 382 30 Z"/>
+    <path class="mass" d="M 326 36 L 294 74 L 306 110 L 362 122 L 418 106 L 428 72 L 396 36"/>
+  </svg>
+</div>
+
+<section>
+  <p class="eyebrow">What this page is</p>
+  <p>Every morning since the middle of September, an instrument has read the public record looking for one specific thing: somebody describing a human ability that no test measures and no language has properly named. Not advice, not personality talk, not a coaching thread. A person noticing an ability in another person, reaching for the word, and not finding it.</p>
+  <p>The sweep runs daily and mostly comes back empty. Thirty-two mornings produced the posts below. Every one of them was written by someone with no knowledge of this project, in their own words, for their own reasons.</p>
+  <p>That is the whole evidential value of this page, and it is worth being precise about what it is and is not. It is not proof that any of these capacities exist. It is the thing you would expect to find <em>if</em> they did. A real but unnamed ability should produce a steady drip of people straining against the vocabulary: saying there is no word for it, or that there are too many words and none of them is the referent, or that the thing their friend does is not intelligence and not empathy and not charisma but is nonetheless always the same thing. That drip is observable. It arrives daily.</p>
+  <div class="counts">
+    <div><span class="n">32</span><span class="l">Daily sweeps</span></div>
+    <div><span class="n">33</span><span class="l">Authors credited</span></div>
+    <div><span class="n">35</span><span class="l">Posts kept</span></div>
+    <div><span class="n">9</span><span class="l">Days with nothing</span></div>
+    <div><span class="n">5</span><span class="l">Candidates in play</span></div>
+  </div>
+  <p class="fine">The discard pile is much larger than the catch, and that is the part worth reporting. Rejected every day: first-person claims of being observant, coaching funnels, horoscopes, fictional characters, dogs who always know when you are sad, single anecdotes with no repetition, and anything that turned out to be conscientiousness or empathy wearing a new coat. A sweep that finds nothing is a successful sweep.</p>
+</section>
+
+<section>
+  <p class="eyebrow">01 · The lexical trap</p>
+  <h2>People keep reporting a missing word</h2>
+  <p>The founding essay argues that our vocabulary of human qualities was built for gossip in small groups, which means it only ever named the differences that mattered to a village. Capacities that no one needed a word for stayed invisible. The prediction is that the gap would be felt long before it was named, and that people who are bilingual or who work in physical skill would feel it first, because they have something to compare against.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/yasu_919">@yasu_919</a> · 1 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On <em>ki ga kiku</em>, and the skill America promotes people for but has no word for.</p><a href="https://twitter.com/yasu_919/status/2105502568868900981">View on X</a></blockquote>
+    </div>
+    <p class="read">The strongest single find in thirty-two days. A capacity that English does not carry as a unit, named precisely in another language, plus the thing most accounts of a virtue leave out: its cost. Japan is exhausted by it. That is a failure mode, and a capacity with no failure mode is usually a compliment in disguise.</p>
+    <span class="verdict">Nearest candidate: <b>interstitial perception</b> · Threshold 04 evidence, cross-language</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/sonikudzu">@sonikudzu</a> · 2 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On a thing being unspeakable: no word for it and too many words for it at once, where people do not understand the actual referent.</p><a href="https://twitter.com/sonikudzu/status/2106108802206421014">View on X</a></blockquote>
+    </div>
+    <p class="read">Both halves of the lexical trap in one post, and the second half is the one that gets missed. Too few words and the thing cannot be pointed at. Too many words and nobody shares a referent, which looks like a vocabulary that works right up until two people discover they were naming different things.</p>
+    <span class="verdict">Nearest candidate: <b>none</b> · This is the instrument problem, not a capacity</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/snorlord2">@snorlord2</a> · 24 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On everything being reduced to intelligence or creativity while canny, prudent and phronesis go unused.</p><a href="https://twitter.com/snorlord2/status/2103263016544616515">View on X</a></blockquote>
+    </div>
+    <p class="read">The lexical trap in reverse. Here the finer words exist and have fallen out of use, swallowed by two coarse ones. A vocabulary can lose resolution as well as fail to acquire it, and the second is harder to notice because nothing appears to be missing.</p>
+    <span class="verdict">Nearest candidate: <b>none</b> · Diagnosis, not specimen</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/GarrettWEnnis2">@GarrettWEnnis2</a> · 3 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On psychological categories: useful descriptions of variation, and not therefore an exhaustive account of who you are.</p><a href="https://twitter.com/GarrettWEnnis2/status/2106384433422954602">View on X</a></blockquote>
+    </div>
+    <p class="read">Written from inside clinical psychology, and the closest anyone came in a month to the actual thesis. Diagnoses, traits and population findings are real and useful. The error is treating a description that recognizes something in you as a complete map of you. The danger named in the post is the one this project worries about most: learning to experience yourself through a group summary.</p>
+    <span class="verdict">Nearest candidate: <b>none</b> · This is the Charter's argument, arrived at independently</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">02 · The instrument, not the human</p>
+  <h2>The resolution of the measurement is mistaken for the resolution of the person</h2>
+  <p>The second limit in the essay: we see the human at the resolution our instruments allow, and a questionnaire has the resolution of a questionnaire. What gets measured is not what matters most, it is what survived translation into items. People who hire, promote and assess for a living run into this constantly, and they describe it without ever reaching for psychometrics.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/ameetm_">@ameetm_</a> · 2 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the person who noticed the team was solving the wrong problem, and why code skill gets judged instead.</p><a href="https://twitter.com/ameetm_/status/2105916706053034304">View on X</a></blockquote>
+    </div>
+    <p class="read">A precise statement of the measurement trap, from software rather than from theory. The valuable thing was noticing, before three weeks of work went into the wrong problem. The measurable thing was code. So the measurable thing became the criterion, and everyone involved can name the substitution while it happens.</p>
+    <span class="verdict">Nearest candidate: <b>kairotic sensitivity</b> and <b>interstitial perception</b> · Observer resolution limit</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/stevestantonsot">@stevestantonsot</a> · 22 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On someone who barely lands one side of a result getting the same label as someone who answered every question that way, and on the only enduring measurable traits.</p><a href="https://twitter.com/stevestantonsot/status/2102464575086215513">View on X</a></blockquote>
+    </div>
+    <p class="read">The sharpest point here is the one about labels. A person who lands just over a boundary receives the same type as a person at the far end of it, and the instrument reports both identically. That is not a flaw in the questionnaire, it is what a category does: it throws away the variation inside itself. Then comes the honest concession, that two instruments are all we have that endure, and a list of what they do not reach. A list of gaps is where a table starts, though it is not yet a table, because it has no empty slots with predicted properties.</p>
+    <span class="verdict">Nearest candidate: <b>none</b> · Resolution loss at the category boundary</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/davidamusick">@davidamusick</a> · 2 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the people and the attributes being real while the categories and the rules for sorting them are arbitrary.</p><a href="https://twitter.com/davidamusick/status/2105965966630772905">View on X</a></blockquote>
+    </div>
+    <p class="read">The cleanest version of the distinction this project rests on. The attributes are out there. The drawers we file them in are ours, invented, revisable, and much younger than the things they contain. Hence the third Charter clause: every classification carries an expiry date.</p>
+    <span class="verdict">Nearest candidate: <b>none</b> · Charter clause three, independently</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">03 · Candidate 01, timing</p>
+  <h2>Kairotic sensitivity, as other people describe it</h2>
+  <p>The claim in the series is that some people repeatedly arrive at the right moment across unrelated domains, at rates luck cannot carry, and that this is a perception rather than a disposition. What the field log finds is third-person descriptions of exactly that, written by observers who then explain it away with whatever word is nearest.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/anakarylletatsy">@anakarylletatsy</a> · 29 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the friend who sensed when a conversation was about to go too far, and could redirect the moment without breaking it.</p><a href="https://twitter.com/anakarylletatsy/status/2104730198528909587">View on X</a></blockquote>
+    </div>
+    <p class="read">The best timing specimen of the month, and a good illustration of why timing is a perception. The skill is not the redirection, which anyone can do. It is detecting the instant before the tilt, repeatedly, in a system with no visible dial. A conversation about to go too far is a phase transition that lasts about a second.</p>
+    <span class="verdict">Nearest candidate: <b>kairotic sensitivity</b> · Specimen, third person, repeated</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/_mantard">@_mantard</a> · 9 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the guy who orients himself inside the meaning of a situation and decides faster than all the other moving pieces, over and over.</p><a href="https://twitter.com/_mantard/status/2108660703758610485">View on X</a></blockquote>
+    </div>
+    <p class="read">One sentence, and it carries the two things the threshold requires: a mechanism that is orientation rather than speed, and the repetition clause at the end. Deciding fast is reaction time. Being oriented inside the meaning of a moving situation before the other pieces are is something else, and nothing in the standard battery looks for it.</p>
+    <span class="verdict">Nearest candidate: <b>kairotic sensitivity</b> · Specimen, mechanism named</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/majamediaco">@majamediaco</a> · 27 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On how saying a highly specific, thoughtful observation at exactly the right moment can be such rizz, because it reveals you have been paying close attention.</p><a href="https://twitter.com/majamediaco/status/2104117811228643361">View on X</a></blockquote>
+    </div>
+    <p class="read">Written as a remark about attraction, and it contains a real claim underneath. The effect requires two things at once: having noticed something precise, and releasing it at the moment it lands. Either alone does nothing. A precise observation at the wrong moment is a correction, and good timing with nothing to say is small talk. The pairing is what the candidate predicts, and the post arrives at it from the opposite direction.</p>
+    <span class="verdict">Nearest candidate: <b>kairotic sensitivity</b> coupled to perception · Observed as an effect</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/insidestorymag">@insidestorymag</a> · 3 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On a biographer finding in Eric Hobsbawm a talent for always being in the right place at the right time.</p><a href="https://twitter.com/insidestorymag/status/2106226997857038539">View on X</a></blockquote>
+    </div>
+    <p class="read">Kept because it fails, and the failure is instructive. A biographer observes a career-long pattern of arriving at the right moment, and immediately converts it into networking and a nose for opportunity. That is what happens to a capacity with no name: it gets absorbed by the nearest available one. This is the lexical trap caught in the act, in a serious publication, about a serious historian.</p>
+    <span class="verdict">Nearest candidate: <b>not assignable</b> · The explaining-away, documented</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">04 · Candidate 02, carrying the unresolved</p>
+  <h2>Semantic load-bearing capacity, as other people describe it</h2>
+  <p>This was the hardest candidate to find in the wild, and the reason is structural. A contradiction held open for eleven years does not produce a post. What does appear, repeatedly, is the ethic of it: people arguing that not concluding is itself a form of skill.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/yasu_919">@yasu_919</a> · 25 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the hardest-working person on a team hiding from one question: is this even the right thing? The question has no fast answer, so it feels unbearable, and shipping code is the way out.</p><a href="https://twitter.com/yasu_919/status/2103490583562219993">View on X</a></blockquote>
+    </div>
+    <p class="read">This describes the failure side of the candidate, which is more useful than the success side, because it names the escape route. Work is what you do instead of holding the unresolved question. Visible effort is socially rewarded and carrying an open contradiction is not, which may be the main reason this capacity has never been measured: the people who have it look, from outside, like people who are slow.</p>
+    <span class="verdict">Nearest candidate: <b>semantic load-bearing capacity</b> · The escape from the open question</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/charliesstephen">@charliesstephen</a> · 6 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the mind turning an unanswered question into a full-time job, and on not every uncertainty deserving immediate resolution.</p><a href="https://twitter.com/charliesstephen/status/2107479750801309799">View on X</a></blockquote>
+    </div>
+    <p class="read">The sorting is the part that matters. Some questions need more evidence, others need to be dropped, and deciding which is which is not the same as tolerating discomfort. Need for cognitive closure, which psychology already measures, is a discomfort. What is described here is a judgment, exercised well or badly, and a judgment is the kind of thing that can have a capacity behind it.</p>
+    <span class="verdict">Nearest candidate: <b>semantic load-bearing capacity</b> · Distinguishes the rival construct</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/SenshaVT">@SenshaVT</a> · 6 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the character who refuses to judge, because judging would mean a correct answer existed and would destroy the category itself.</p><a href="https://twitter.com/SenshaVT/status/2107313808297611667">View on X</a></blockquote>
+    </div>
+    <p class="read">A third-person description of refusing closure for a reason, not from inability. The grief logic in it is what makes it a real specimen rather than a slogan: closing the question would settle something the person cannot afford to have settled. Load-bearing in the literal sense. Something is standing on the unresolved state.</p>
+    <span class="verdict">Nearest candidate: <b>semantic load-bearing capacity</b> · Specimen, motive visible</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">05 · Candidate 03, state transfer</p>
+  <h2>Resonance transfer, as other people describe it</h2>
+  <p>This is the candidate the public record is full of, and the one where the noise is worst, because every coach on the internet sells presence. The sweep discards almost all of it. What survives is the posts that describe a mechanism instead of an effect, and the posts that notice the cost.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/Elfhood_">@Elfhood_</a> · 28 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the emotionally coherent person who changes the geometry of a room without announcing a teaching.</p><a href="https://twitter.com/Elfhood_/status/2104585841276268887">View on X</a></blockquote>
+    </div>
+    <p class="read">The best sentence anyone wrote about this in a month, and it isolates the right variable. Without announcing a teaching means without content. If the room changes and the words did not do it, something else did the work, and that something is what the series is trying to pull apart into separate transmitters.</p>
+    <span class="verdict">Nearest candidate: <b>resonance transfer</b> · Content stripped out, which is the experiment</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/Abbywillia69841">@Abbywillia69841</a> · 12 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the friend who is impossible to see rattled in a crisis: a delayed flight, bad news from the school, the contractor walking off, and he stays composed.</p><a href="https://twitter.com/Abbywillia69841/status/2098715628836159954">View on X</a></blockquote>
+    </div>
+    <p class="read">A calm carrier described from outside, with what the threshold actually wants: three unrelated situations rather than one good day. The post goes on to give the carrier's own explanation, which is the fair rival hypothesis and worth stating plainly. The calm may be produced by a way of taking a problem apart, in which case it is cognitive and only looks like transmission. Separating those two is a real experiment, and not a hard one.</p>
+    <span class="verdict">Nearest candidate: <b>resonance transfer</b>, calm channel · Rival explanation included</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/FlatChickener">@FlatChickener</a> · 28 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the colleague whose good mood and bad mood both became everyone else's problem.</p><a href="https://twitter.com/FlatChickener/status/2104520195704537349">View on X</a></blockquote>
+    </div>
+    <p class="read">Kept because it is the failure mode, told by someone who had to live with it. The series argues that strong transmitters cannot easily not transmit, and that the volume control is the part most carriers never find. Here it is from the receiving end, with no admiration in it at all. A capacity that only ever appears as a gift is a capacity that has not been looked at properly.</p>
+    <span class="verdict">Nearest candidate: <b>resonance transfer</b> · The cost, from the receiver</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">06 · Candidate 05, the residue</p>
+  <h2>Interstitial perception, as other people describe it</h2>
+  <p>Seeing what falls between the categories, the residue every classification leaks. This candidate produces the most first-person reports of any of the five, which is both useful and suspect: useful because the people describing it describe the same costs, suspect because self-report is the weakest instrument there is.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/Midewontmiss">@Midewontmiss</a> · 10 September and 1 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On not being the autistic person who misses every social cue, but the one who notices the tone change, the half-second expression, the tension, and analyses all of it at once.</p><a href="https://twitter.com/Midewontmiss/status/2098041244848934926">View on X</a></blockquote>
+    </div>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">Three weeks later, the same claim with the stall made explicit: noticing all of them, then working out which version of reality everyone else is operating in.</p><a href="https://twitter.com/Midewontmiss/status/2105700733467115976">View on X</a></blockquote>
+    </div>
+    <p class="read">Two posts, three weeks apart, by the same person, and that is why both are here. The first is a correction aimed at a diagnostic category: the label predicts a deficit of cue detection and what is reported is the opposite, full intake followed by overload. If a category gets the direction wrong it is not measuring the thing. The second post, written without reference to the first, describes the same mechanism and adds what the stall consists of: competing models of a room, all live, none discardable.</p>
+    <p class="read" style="margin-top:14px">Two posts by one person are not replication across people, and the page does not claim they are. They are something the first threshold asks for and anecdotes almost never supply: the same description of the same mechanism by the same person at two separate moments, with no prompt in between.</p>
+    <span class="verdict">Nearest candidate: <b>interstitial perception</b> · Threshold 01 evidence, stability within a person</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/fwmarqix">@fwmarqix</a> · 7 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On a wife who notices people first, across thirty-one years, and the small head shake that means not your circus.</p><a href="https://twitter.com/fwmarqix/status/2107640335350268208">View on X</a></blockquote>
+    </div>
+    <p class="read">The single best-formed specimen the sweep has produced. Another person, observed over three decades, detecting an incongruity in a public space before the observer has put his coffee down, and pairing the perception with a brake: notice, and do not intervene. The brake is the interesting half. It suggests the capacity has a governor, which means the governor can be measured separately.</p>
+    <span class="verdict">Nearest candidate: <b>interstitial perception</b> · Thirty-one years of repetition</span>
+  </div>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/Amara372559">@Amara372559</a> · 7 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the aunt who does it at birthdays, funerals and random Sundays: never raising her voice, just remembering things nobody asked her to remember.</p><a href="https://twitter.com/Amara372559/status/2107797290383491095">View on X</a></blockquote>
+    </div>
+    <p class="read">A capacity with the moral sign reversed, which the taxonomy needs more of. Retaining the unasked-for detail across years and then placing it into a room at the moment of maximum effect is a real and repeatable ability. It is also, in this family, a weapon. Nothing in the four thresholds requires a capacity to be pleasant.</p>
+    <span class="verdict">Nearest candidate: <b>interstitial perception</b> with <b>kairotic</b> delivery · Specimen, hostile use</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">07 · The cost</p>
+  <h2>Every capacity in this file arrives with a bill</h2>
+  <p>The quickest way to tell a capacity from a compliment is to ask what it costs the person who has it. The sweep finds these reports constantly, and they are the most consistent signal on the page: the same complaints, from strangers, in the same words.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/Mkschizo2">@Mkschizo2</a> · 24 September 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On seeing what others do not, predicting with alarming accuracy, and trading all of it in a heartbeat to be completely ignorant instead.</p><a href="https://twitter.com/Mkschizo2/status/2103176463054750104">View on X</a></blockquote>
+    </div>
+    <p class="read">Self-report, so weak as evidence, and included anyway for the sentence about trading it away. Nobody writes that about a talent they are performing. The ability and the toll are described as one object rather than two, which is what a capacity looks like from inside and what a compliment never looks like. If something of this kind is real, this is the presentation it would have, and it would be arriving at doctors' offices under other names.</p>
+    <span class="verdict">Nearest candidate: <b>interstitial perception</b> · Failure mode, self-reported</span>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">08 · The objection</p>
+  <h2>The strongest thing said against all of this</h2>
+  <p>A project like this is worth nothing if it only collects agreement. The same sweep that looks for specimens looks for the sharpest available counterargument, and the counterargument is good.</p>
+
+  <div class="specimen">
+    <span class="handle"><a href="https://x.com/BenWeary4473">@BenWeary4473</a> · 4 October 2026</span>
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none"><p lang="en" dir="ltr">On the structure of personality being a closed typological space: sixteen vertices on a hypercube.</p><a href="https://twitter.com/BenWeary4473/status/2106778085873922369">View on X</a></blockquote>
+    </div>
+    <p class="read">This is the position this project exists to contest, stated more cleanly than its own defenders usually manage. If the space of human difference is closed, there are no empty slots, nothing is missing, and every capacity on the Candidate List is a recombination of coordinates we already have. The honest answer is that this is an empirical question and not yet settled, and that a closed space is the more parsimonious hypothesis until a capacity on this list clears all four thresholds. Nothing on this page clears them yet.</p>
+    <span class="verdict">Status: <b>unanswered</b> · The parsimony argument holds until a candidate graduates</span>
+  </div>
+
+  <p style="margin-top:34px">The other standing objections, also collected from the public record and also unanswered: that the lexical hypothesis already guarantees the important differences are in the language; that always is a memory bias and the same person is far less consistent than observers believe; and that recognition after naming is the Barnum effect, not evidence. Each of those is a reason the four thresholds exist, and none of them is defeated by a page full of anecdotes, including this one.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Also in the file</p>
+  <h2>Kept, credited, not embedded</h2>
+  <p>Posts that earned a place in the log without being strong enough for a section of their own. Each is public and linked to its author.</p>
+  <ul class="alsolist">
+    <li><span class="who"><a href="https://x.com/LacanInAust/status/2105031733825753476">@LacanInAust</a></span><span>Quoting Lacan: psychology is itself an error of perspective on the human being. The pre-periodic diagnosis, from a tradition that has no interest in tests.</span></li>
+    <li><span class="who"><a href="https://x.com/alineasmarrow/status/2105616174700490881">@alineasmarrow</a></span><span>Intelligence as a map with peaks and blind spots rather than a ladder. The right shape, still populated with the peaks we already have names for.</span></li>
+    <li><span class="who"><a href="https://x.com/atsushi_koshio/status/2106086872007290901">@atsushi_koshio</a></span><span>On research asking who is missing from a simulated society. Omission-aware validity, which is the measurement question underneath this whole project.</span></li>
+    <li><span class="who"><a href="https://x.com/CeyhanRiver/status/2103835883354849677">@CeyhanRiver</a></span><span>Characterising humans in terms of the current technology has never worked out. A warning this project has to take personally.</span></li>
+    <li><span class="who"><a href="https://x.com/6th_july/status/2105042027020767311">@6th_july</a></span><span>On people who notice what everyone overlooked, not because they are smarter, but because they pay attention differently. Third person, explicitly decoupled from intelligence.</span></li>
+    <li><span class="who"><a href="https://x.com/TimeTrekFam/status/2103470454120006047">@TimeTrekFam</a></span><span>If you think you have found the final correct answer, you are probably not very good at this. Refusal of premature closure, stated as a professional standard.</span></li>
+    <li><span class="who"><a href="https://x.com/dannymatharu/status/2107093809976795545">@dannymatharu</a></span><span>The person a committee turns to, who is meant to know the difference between worth watching and needs reporting, and whom nobody trains for it. A judgment with no curriculum.</span></li>
+    <li><span class="who"><a href="https://x.com/jrockandrollt/status/2101352763049537565">@jrockandrollt</a></span><span>The pizza shop owner who remembers everyone he has ever met, their spouses, their order five years ago. Social memory at a capacity that has no test.</span></li>
+    <li><span class="who"><a href="https://x.com/Burningpass/status/2102402860113629256">@Burningpass</a></span><span>High intuition and fast pattern recognition described as gift and curse in the same breath. The failure-mode report again, from a stranger.</span></li>
+    <li><span class="who"><a href="https://x.com/FridoKala/status/2103507798642524561">@FridoKala</a></span><span>Picking up every microexpression, and feeling everything not being much fun. Same structure, third independent report.</span></li>
+    <li><span class="who"><a href="https://x.com/Taabreez/status/2107486686028407221">@Taabreez</a></span><span>A list of abilities outside the narrow psychometric sense of IQ: pattern recognition, quiet discernment, strategic detachment. A better list, still without empty slots.</span></li>
+    <li><span class="who"><a href="https://x.com/SharestepAI/status/2108324070060077527">@SharestepAI</a></span><span>A friend of twenty years in currency markets who watches the gap between what everyone thinks will happen and what happens, and trades the difference.</span></li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">If you are on this page</p>
+  <h2>You are an author here, not a specimen</h2>
+  <p>This page quotes people who were not writing for it. That raises an obligation, and the Charter of this project is older than the page, so the rules were already written.</p>
+  <div class="charter">
+    <ol>
+      <li><strong>Your post stays yours.</strong> Every post above is embedded through X's own embed, which means it is served live from your account. Edit it, protect it or delete it and it disappears from here. Nothing is copied, cached or archived on this site.</li>
+      <li><strong>Off on request, no reason needed.</strong> Mail <a href="mailto:hello@undiscoveredhuman.com?subject=Remove%20my%20post%20from%20the%20field%20log">hello@undiscoveredhuman.com</a> and your post comes off within a day. You do not have to explain, and nothing is published about the request.</li>
+      <li><strong>Nobody here is being measured.</strong> No scores, no rankings, no profiles, no scraping of your other posts, and nothing on this page or anywhere in this project may be used for hiring, insurance, credit or admissions. That is clause two of the Charter and it is not negotiable.</li>
+      <li><strong>The reading above is a hypothesis about a capacity, never a claim about you.</strong> Where a post describes a third person, that person is unnamed and stays unnamed. The map belongs to the mapped.</li>
+      <li><strong>Every classification on this site carries an expiry date.</strong> All five candidates are expected to change shape or die. If your post ends up attached to one that dies, you were right and the taxonomy was wrong, and the log will say so.</li>
+    </ol>
+    <p style="margin-top:18px">If you wrote one of these posts and want the opposite of removal, the nomination route is open: your own name for the thing you noticed, one paragraph on what it is not, and one anonymized example. That is how a candidate gets a name, and the name that sticks is usually the first one that arrives.</p>
+    <div class="actions">
+      <a class="btn primary" href="candidates.html">The Candidate List</a>
+      <a class="btn" href="https://doi.org/10.5281/zenodo.21938988">The founding essay</a>
+      <a class="btn" href="https://undiscoveredhuman.substack.com">Follow the series</a>
+    </div>
+    <p class="fine">The sweep runs every morning and this page is revised as it finds things. Nothing here is a finding. It is a drawer of specimens, kept in public, with the discards reported alongside the catch.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="channels">
+    <a href="index.html">Home</a>
+    <a href="writing.html">Writing</a>
+    <a href="candidates.html">Candidate List</a>
+    <a href="book.html">The book</a>
+    <a href="https://undiscoveredhuman.substack.com">Substack</a>
+    <a href="https://x.com/undiscovrdhuman">X</a>
+    <a href="https://doi.org/10.5281/zenodo.21938988">Founding essay (DOI)</a>
+  </div>
+  <p class="colophon">What has no name cannot be seen. Start naming.</p>
+</footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
